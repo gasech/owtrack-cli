@@ -1,6 +1,6 @@
 # Owtrack-cli
+![Screenshot 1](https://raw.githubusercontent.com/gasech/owtrack-cli/main/assets/screenshot.png)
 A CLI application that allows you to track your Overwatch 2 matches, see your statistics and more...
-![]()
 
 ## Features
 - Save your matches locally
