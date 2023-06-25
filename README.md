@@ -10,6 +10,8 @@ A CLI application that allows you to track your Overwatch 2 matches, see your st
 
 ## Developing
 
+This app was built with node `v20.3.1` and npm `v9.6.7`, if something isn't working correctly, it's probably related to this.
+
 ```bash
 git clone https://github.com/gasech/owtrack-cli.git
 cd owtrack-cli
