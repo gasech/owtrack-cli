@@ -3,13 +3,13 @@ import { createSpinner } from 'nanospinner'
 
 import { Hero, HeroRole, getHeroesByRole } from "./models/Hero.ts";
 import { getMapsByType, MapType, Map } from "./models/Map.ts";
-import { Exceptions, Match, Result } from "./models/Match.ts";
+import { Exceptions, Result } from "./models/Match.ts";
 import { addMatch, getNextMatchId } from "./utils/match.ts"
 
 import { sleep } from "./utils/logger.ts";
 import { askReturnMenu } from "./utils/prompt.ts";
 
-let match: Match;
+let match: any = {};
 
 export const registerMatch = async () => {
   match.id = getNextMatchId()
@@ -31,7 +31,11 @@ export const registerMatch = async () => {
   const spinner = createSpinner(confirm.answer ? 'Registering your match' : 'Cancelling...').start()
   await sleep();
 
-  if (!confirm.answer) return spinner.error({ text: `Cancelled the match register.` });
+  if (!confirm.answer) {
+    await sleep();
+    askReturnMenu();
+    return spinner.error({ text: `Cancelled the match register.` });
+  }
 
   if (addMatch(match)) {
     spinner.success({ text: `Succesfully registered your match.` })
@@ -75,7 +79,7 @@ const askMapType = async (): Promise<MapType> => {
 }
 
 const askMap = async (): Promise<Map> => {
-  let maps = getMapsByType(match.mapType ? match.mapType : "Push");
+  let maps = getMapsByType(match.mapType);
 
   const answer = await inquirer.prompt({
     name: 'map',
@@ -103,7 +107,7 @@ const askRole = async (): Promise<HeroRole> => {
 }
 
 const askHeroes = async (): Promise<Hero[]> => {
-  let heroes: Hero[] = getHeroesByRole(match.role ? match.role : "Tank");
+  let heroes: Hero[] = getHeroesByRole(match.role);
 
   const answer = await inquirer.prompt({
     name: 'heroes',

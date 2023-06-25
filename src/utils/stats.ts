@@ -35,7 +35,7 @@ const getMapLeaderboard = (matches: Match[]): MapScore[] => {
 
     if (!findMatch) {
       mapLeaderboard.push({
-        name: match.map,
+        name: match.map ? match.map : "Busan",
         wins: match.result === "Win" ? 1 : 0,
         losses: match.result === "Loss" ? 1 : 0,
         draws: match.result === "Draw" ? 1 : 0,
@@ -63,7 +63,7 @@ const getRoleLeaderboard = (matches: Match[]): RoleScore[] => {
 
     if (!findMatch) {
       roleLeaderboard.push({
-        name: match.role,
+        name: match.role ? match.role : "Tank",
         wins: match.result === "Win" ? 1 : 0,
         losses: match.result === "Loss" ? 1 : 0,
         draws: match.result === "Draw" ? 1 : 0,
