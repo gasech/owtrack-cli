@@ -49,7 +49,7 @@ const getMapLeaderboard = (matches: Match[]): MapScore[] => {
   })
 
   let sortedMapLeaderboard = mapLeaderboard.sort((a: MapScore, b: MapScore) => {
-    return a.getWinrate() - b.getWinrate()
+    return b.getWinrate() - a.getWinrate()
   })
 
   return sortedMapLeaderboard;
@@ -77,7 +77,7 @@ const getRoleLeaderboard = (matches: Match[]): RoleScore[] => {
   })
 
   let sortedRoleLeaderboard = roleLeaderboard.sort((a: RoleScore, b: RoleScore) => {
-    return a.getWinrate() - b.getWinrate()
+    return b.getWinrate() - a.getWinrate()
   })
 
   return sortedRoleLeaderboard;
@@ -107,7 +107,7 @@ const getHeroLeaderboard = (matches: Match[]): HeroScore[] => {
   })
 
   let sortedHeroLeaderboard = heroLeaderboard.sort((a: HeroScore, b: HeroScore) => {
-    return a.getWinrate() - b.getWinrate()
+    return b.getWinrate() - a.getWinrate()
   })
 
   return sortedHeroLeaderboard;
