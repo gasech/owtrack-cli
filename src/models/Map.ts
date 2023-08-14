@@ -1,4 +1,4 @@
-export type MapType = "Escort" | "Control" | "Hybrid" | "Push";
+export type MapType = "Escort" | "Control" | "Flashpoint" | "Hybrid" | "Push";
 
 export type ControlMap =
   | "Antarctic Peninsula"
@@ -14,7 +14,7 @@ export const ControlMaps: ControlMap[] = [
   "Ilios",
   "Lijiang Tower",
   "Nepal",
-  "Oasis"
+  "Oasis",
 ];
 
 export type EscortMap =
@@ -35,8 +35,12 @@ export const EscortMaps: EscortMap[] = [
   "Rialto",
   "Route 66",
   "Watchpoint: Gibraltar",
-  "Shambali Monastery"
+  "Shambali Monastery",
 ];
+
+export type FlashpointMap = "New Junk City" | "Suravasa";
+
+export const FlashpointMaps: FlashpointMap[] = ["New Junk City", "Suravasa"];
 
 export type HybridMap =
   | "Blizzard World"
@@ -54,18 +58,15 @@ export const HybridMaps: HybridMap[] = [
   "King's Row",
   "Numbani",
   "Midtown",
-  "Paraíso"
+  "Paraíso",
 ];
 
-export type PushMap =
-  | "Colosseo"
-  | "Esperança"
-  | "New Queen Street";
+export type PushMap = "Colosseo" | "Esperança" | "New Queen Street";
 
 export const PushMaps: PushMap[] = [
   "Colosseo",
   "Esperança",
-  "New Queen Street"
+  "New Queen Street",
 ];
 
 export type Map = ControlMap | EscortMap | HybridMap | PushMap;
@@ -73,8 +74,9 @@ export type Map = ControlMap | EscortMap | HybridMap | PushMap;
 export const getMapsByType = (mapType: MapType) => {
   if (mapType === "Control") return ControlMaps;
   if (mapType === "Escort") return EscortMaps;
+  if (mapType === "Flashpoint") return FlashpointMaps;
   if (mapType === "Hybrid") return HybridMaps;
   if (mapType === "Push") return PushMaps;
 
-  return []
-}
+  return [];
+};

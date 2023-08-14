@@ -1,10 +1,6 @@
-export type HeroRole = "Tank" | "Damage" | "Support"
+export type HeroRole = "Tank" | "Damage" | "Support";
 
-export const HeroRoles: HeroRole[] = [
-  "Tank",
-  "Damage",
-  "Support"
-]
+export const HeroRoles: HeroRole[] = ["Tank", "Damage", "Support"];
 
 export type Hero =
   | "Ana"
@@ -18,6 +14,7 @@ export type Hero =
   | "Echo"
   | "Genji"
   | "Hanzo"
+  | "Ilari"
   | "Junker Queen"
   | "Junkrat"
   | "Kiriko"
@@ -57,6 +54,7 @@ export const Heroes: Hero[] = [
   "Echo",
   "Genji",
   "Hanzo",
+  "Ilari",
   "Junker Queen",
   "Junkrat",
   "Kiriko",
@@ -82,7 +80,7 @@ export const Heroes: Hero[] = [
   "Winston",
   "Wrecking Ball",
   "Zarya",
-  "Zenyatta"
+  "Zenyatta",
 ];
 
 export const TankHeroes: Hero[] = [
@@ -96,8 +94,8 @@ export const TankHeroes: Hero[] = [
   "Sigma",
   "Winston",
   "Wrecking Ball",
-  "Zarya"
-]
+  "Zarya",
+];
 
 export const DamageHeroes: Hero[] = [
   "Ashe",
@@ -116,20 +114,21 @@ export const DamageHeroes: Hero[] = [
   "Symmetra",
   "Torbjörn",
   "Tracer",
-  "Widowmaker"
-]
+  "Widowmaker",
+];
 
 export const SupportHeroes: Hero[] = [
   "Ana",
   "Baptiste",
   "Brigitte",
+  "Ilari",
   "Kiriko",
   "Lifeweaver",
   "Lúcio",
   "Mercy",
   "Moira",
-  "Zenyatta"
-]
+  "Zenyatta",
+];
 
 export const getHeroesByRole = (role: HeroRole): Hero[] => {
   if (role == "Tank") return TankHeroes;
@@ -137,4 +136,4 @@ export const getHeroesByRole = (role: HeroRole): Hero[] => {
   if (role == "Support") return SupportHeroes;
 
   return [];
-}
+};
