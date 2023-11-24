@@ -1,5 +1,5 @@
-import { Hero, HeroRole } from "./Hero"
-import { Map } from "./Map"
+import { Hero, HeroRole } from "./Hero";
+import { Map } from "./Map";
 
 export interface Stats {
   wins: number,
