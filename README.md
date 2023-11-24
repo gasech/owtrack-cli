@@ -26,10 +26,5 @@ npm start
 - [ ] Improve UI and data display
 - [ ] Add leaver/thrower ratio
 
-### Season 6
-- [ ] Add new hero
-- [ ] Add new mode (Flashpoint)
-- [ ] Add new maps 
-
 ## Credits
 This project is heavily inspired by [Competiwatch](https://github.com/cheshire137/competiwatch-desktop/)
