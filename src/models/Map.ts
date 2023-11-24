@@ -6,7 +6,9 @@ export type ControlMap =
   | "Ilios"
   | "Lijiang Tower"
   | "Nepal"
-  | "Oasis";
+  | "Oasis"
+  | "Samoa"
+;
 
 export const ControlMaps: ControlMap[] = [
 	"Antarctic Peninsula",
@@ -15,6 +17,7 @@ export const ControlMaps: ControlMap[] = [
 	"Lijiang Tower",
 	"Nepal",
 	"Oasis",
+	"Samoa",
 ];
 
 export type EscortMap =
