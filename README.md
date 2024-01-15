@@ -9,7 +9,6 @@ A CLI application that allows you to track your Overwatch 2 matches, see your st
 - Delete matches by id 
 
 ## Developing
-
 This app was built with node `v20.3.1` and npm `v9.6.7`, if something isn't working correctly, it's probably related to this.
 
 ```bash
@@ -18,6 +17,9 @@ cd owtrack-cli
 npm i
 npm start
 ```
+
+## Testing
+First delete all of your cached data before testing. It's an inconvenience but necessary for now. Then run `npm test`
 
 ## TODO
 - [ ] Add Windows support (important)
