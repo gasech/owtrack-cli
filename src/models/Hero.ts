@@ -20,6 +20,7 @@ export type Hero =
   | "Kiriko"
   | "Lifeweaver"
   | "Lúcio"
+  | "Mauga"
   | "Mei"
   | "Mercy"
   | "Moira"
@@ -60,6 +61,7 @@ export const Heroes: Hero[] = [
 	"Kiriko",
 	"Lifeweaver",
 	"Lúcio",
+	"Mauga",
 	"Mei",
 	"Mercy",
 	"Moira",
@@ -86,6 +88,7 @@ export const Heroes: Hero[] = [
 export const TankHeroes: Hero[] = [
 	"D.Va",
 	"Doomfist",
+	"Mauga",
 	"Junker Queen",
 	"Orisa",
 	"Ramattra",
