@@ -22,9 +22,7 @@ export const readData = () => {
 
 export const saveData = (matches: Match[]) => {
   const data = {
-    matches: [
-      ...matches
-    ]
+    matches: matches,
   };
 
   const convertedData = JSON.stringify(data, null, 4);
@@ -48,12 +46,15 @@ export const checkIfPathExists = (): boolean => {
 
 export const createDefaultData = () => {
   const defaultData = {
-    matches: []
+    matches: [],
   };
 
   try {
     fs.mkdirSync(storagePath, { recursive: true });
-    fs.writeFileSync(storagePath + "data.json", JSON.stringify(defaultData, null, 2));
+    fs.writeFileSync(
+      storagePath + "data.json",
+      JSON.stringify(defaultData, null, 2)
+    );
   } catch (err) {
     console.error(err);
   }

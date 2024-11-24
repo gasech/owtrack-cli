@@ -1,4 +1,9 @@
-import { addMatch, deleteMatchById, deleteAllMatches, getNextMatchId } from "./match";
+import {
+  addMatch,
+  deleteMatchById,
+  deleteAllMatches,
+  getNextMatchId,
+} from "./match";
 import { Match } from "../models/Match";
 
 describe("addMatch function", () => {
@@ -21,7 +26,7 @@ describe("addMatch function", () => {
         },
       },
       party: ["Player 1", "Player 2"],
-      replayCode: "ABCD1234"
+      replayCode: "ABCD1234",
     };
 
     const result = addMatch(match);

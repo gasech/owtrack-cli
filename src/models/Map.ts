@@ -7,17 +7,16 @@ export type ControlMap =
   | "Lijiang Tower"
   | "Nepal"
   | "Oasis"
-  | "Samoa"
-;
+  | "Samoa";
 
 export const ControlMaps: ControlMap[] = [
-	"Antarctic Peninsula",
-	"Busan",
-	"Ilios",
-	"Lijiang Tower",
-	"Nepal",
-	"Oasis",
-	"Samoa",
+  "Antarctic Peninsula",
+  "Busan",
+  "Ilios",
+  "Lijiang Tower",
+  "Nepal",
+  "Oasis",
+  "Samoa",
 ];
 
 export type EscortMap =
@@ -31,14 +30,14 @@ export type EscortMap =
   | "Shambali Monastery";
 
 export const EscortMaps: EscortMap[] = [
-	"Circuit Royale",
-	"Dorado",
-	"Havana",
-	"Junkertown",
-	"Rialto",
-	"Route 66",
-	"Watchpoint: Gibraltar",
-	"Shambali Monastery",
+  "Circuit Royale",
+  "Dorado",
+  "Havana",
+  "Junkertown",
+  "Rialto",
+  "Route 66",
+  "Watchpoint: Gibraltar",
+  "Shambali Monastery",
 ];
 
 export type FlashpointMap = "New Junk City" | "Suravasa";
@@ -55,31 +54,31 @@ export type HybridMap =
   | "Paraíso";
 
 export const HybridMaps: HybridMap[] = [
-	"Blizzard World",
-	"Eichenwalde",
-	"Hollywood",
-	"King's Row",
-	"Numbani",
-	"Midtown",
-	"Paraíso",
+  "Blizzard World",
+  "Eichenwalde",
+  "Hollywood",
+  "King's Row",
+  "Numbani",
+  "Midtown",
+  "Paraíso",
 ];
 
 export type PushMap = "Colosseo" | "Esperança" | "New Queen Street";
 
 export const PushMaps: PushMap[] = [
-	"Colosseo",
-	"Esperança",
-	"New Queen Street",
+  "Colosseo",
+  "Esperança",
+  "New Queen Street",
 ];
 
 export type Map = ControlMap | EscortMap | HybridMap | PushMap;
 
 export const getMapsByType = (mapType: MapType) => {
-	if (mapType === "Control") return ControlMaps;
-	if (mapType === "Escort") return EscortMaps;
-	if (mapType === "Flashpoint") return FlashpointMaps;
-	if (mapType === "Hybrid") return HybridMaps;
-	if (mapType === "Push") return PushMaps;
+  if (mapType === "Control") return ControlMaps;
+  if (mapType === "Escort") return EscortMaps;
+  if (mapType === "Flashpoint") return FlashpointMaps;
+  if (mapType === "Hybrid") return HybridMaps;
+  if (mapType === "Push") return PushMaps;
 
-	return [];
+  return [];
 };
