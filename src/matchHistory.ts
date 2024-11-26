@@ -1,16 +1,15 @@
 import Table from "cli-table3";
 
-import { readData } from "./utils/storage.ts";
 import { askReturnMenu } from "./utils/prompt.ts";
+import { getMatches } from "./api/match.ts";
 import { Match } from "./models/Match.ts";
 
 export const matchHistory = async () => {
   try {
-    const data = readData();
-    const matches = data.matches;
+    const matches = await getMatches();
 
     const table = new Table({
-      head: ["Id", "Map", "Role", "Heroes", "Replay Code", "Result"],
+      head: ["Id", "Result", "Map", "Role", "Heroes", "Replay Code"],
     });
 
     matches.forEach((match: Match) => {
@@ -24,11 +23,11 @@ export const matchHistory = async () => {
 
       table.push([
         match.id,
+        match.result,
         match.map,
         match.role,
         heroesText,
         match.replayCode,
-        match.result,
       ]);
     });
 

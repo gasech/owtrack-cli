@@ -1,10 +1,9 @@
 import inquirer from "inquirer";
 import { init } from "./index.ts";
 
-import { deleteAllMatches, deleteMatchById } from "./utils/match.ts";
+import { deleteMatchById, deleteAllMatches } from "./api/match.ts";
 import { askReturnMenu } from "./utils/prompt.ts";
 import { createSpinner } from "nanospinner";
-import { sleep } from "./utils/logger.ts";
 
 export const manageMatches = async () => {
   const answer = await inquirer.prompt({
@@ -27,9 +26,8 @@ const handleMenu = (answer: string) => {
 
 const askDeleteAllMatches = async () => {
   const spinner = createSpinner("Deleting all matches...").start();
-  await sleep();
 
-  if (deleteAllMatches()) {
+  if (await deleteAllMatches()) {
     spinner.success({ text: "Successfully deleted all matches." });
   } else {
     spinner.error({ text: "You don't have any matches registered." });
@@ -46,9 +44,8 @@ const askDeleteMatchById = async () => {
   });
 
   const spinner = createSpinner("Deleting your match...").start();
-  await sleep();
 
-  if (deleteMatchById(answer.id)) {
+  if (await deleteMatchById(answer.id)) {
     spinner.success({ text: "Successfully deleted your match." });
   } else {
     spinner.error({ text: "Couldn't find a match with the id specified." });

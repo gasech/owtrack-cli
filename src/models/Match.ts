@@ -15,13 +15,13 @@ export interface Exceptions {
 }
 
 export interface Match {
-  id: number;
+  id: string;
   result: Result;
   mapType: MapType;
   map: Map;
   role: HeroRole;
   heroesPlayed: Hero[];
   exceptions: Exceptions;
-  party: string[];
   replayCode: string;
+  party: string[];
 }

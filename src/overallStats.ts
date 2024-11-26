@@ -10,13 +10,13 @@ import { askReturnMenu } from "./utils/prompt.ts";
 let stats: Stats;
 
 export const overallStats = async () => {
-  stats = getStats();
+  stats = await getStats();
 
   const winrate = parseInt(
     Number((stats.wins * 100) / (stats.wins + stats.losses)).toFixed(2)
   );
 
-  log(`Overall Stats: 
+  log(`Overall Stats:
 Wins: ${stats.wins}
 Losses: ${stats.losses}
 Draws: ${stats.draws}

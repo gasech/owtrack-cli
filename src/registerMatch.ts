@@ -4,13 +4,11 @@ import { createSpinner } from "nanospinner";
 import { Hero, HeroRole, getHeroesByRole } from "./models/Hero.ts";
 import { getMapsByType, MapType, Map } from "./models/Map.ts";
 import { Exceptions, Result } from "./models/Match.ts";
-import { addMatch, getNextMatchId } from "./utils/match.ts";
+import { addMatch } from "./api/match.ts";
 
-import { sleep } from "./utils/logger.ts";
 import { askReturnMenu } from "./utils/prompt.ts";
 
 interface MatchConstructor {
-  id?: number;
   result?: Result;
   mapType?: MapType;
   map?: Map;
@@ -24,7 +22,6 @@ interface MatchConstructor {
 const match: MatchConstructor = {};
 
 export const registerMatch = async () => {
-  match.id = getNextMatchId();
   match.result = await askResult();
   match.mapType = await askMapType();
   match.map = await askMap();
@@ -43,18 +40,16 @@ export const registerMatch = async () => {
   const spinner = createSpinner(
     confirm.answer ? "Registering your match" : "Cancelling..."
   ).start();
-  await sleep();
 
   if (!confirm.answer) {
-    await sleep();
     askReturnMenu();
     return spinner.error({ text: "Cancelled the match register." });
   }
 
   if (validateMatch(match)) {
     if (
-      addMatch({
-        id: match.id,
+      await addMatch({
+        id: "",
         result: match.result,
         mapType: match.mapType,
         map: match.map,
@@ -73,7 +68,6 @@ export const registerMatch = async () => {
     spinner.error({ text: "Something went wrong while adding your match." });
   }
 
-  await sleep();
   askReturnMenu();
 };
 
@@ -192,7 +186,6 @@ const validateReplayCode = async (input: string) => {
 
 const validateMatch = (match: MatchConstructor) => {
   if (
-    match.id !== undefined &&
     match.result !== undefined &&
     match.mapType !== undefined &&
     match.map !== undefined &&

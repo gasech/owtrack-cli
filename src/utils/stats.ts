@@ -1,22 +1,19 @@
 import { Match } from "../models/Match";
 import { HeroScore, MapScore, RoleScore, Stats } from "../models/Stats";
-import { readData } from "./storage";
+import { getMatches } from "../api/match";
 
-export const getStats = (): Stats => {
-  const data = readData();
-  const matches = data.matches;
+export const getStats = async (): Promise<Stats> => {
+  const matches = await getMatches();
   const record = {
     wins: 0,
     losses: 0,
     draws: 0,
   };
-
   matches.forEach((match: Match) => {
     if (match.result === "Win") record.wins++;
     if (match.result === "Loss") record.losses++;
     if (match.result === "Draw") record.draws++;
   });
-
   return {
     wins: record.wins,
     losses: record.losses,
